@@ -19,7 +19,6 @@ export class UserService {
   ) {}
 
   create(user: User): Observable<User> {
-   
     return this.authService.hashPassword(user.password).pipe(
       switchMap((passwordHash: string) => {
         return from(
@@ -66,6 +65,10 @@ export class UserService {
 
   deleteOne(id: number) {
     return from(this.userRepository.delete(id));
+  }
+
+  updateRoleOfUser(id: number, user: User): Observable<any> {
+    return from(this.userRepository.update(id, user));
   }
 
   login(user: User): Observable<string> {
