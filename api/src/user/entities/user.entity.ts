@@ -1,6 +1,6 @@
 import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-export enum userRole {
+export enum UserRole {
   ADMIN = 'admin',
   EDITOR = 'editor',
   CHIEF_EDITOR = 'chief_editor',
@@ -24,8 +24,8 @@ export class UserEntity {
   @Column()
   password: string;
 
-  @Column({ type: 'enum', enum: userRole, default: userRole.USER })
-  role: userRole;
+  @Column({ type: 'enum', enum: UserRole, default: UserRole.USER })
+  role: UserRole;
 
   @BeforeInsert()
   emailToLowerCase() {
