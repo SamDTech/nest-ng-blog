@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"samuel\",\n    \"username\": \"samuel\"\n}",
+							"raw": "{\n    \"name\": \"samuel\",\n    \"username\": \"samuel2\",\n    \"email\": \"opeyemisamuel22@gmail.com\",\n    \"password\": \"123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -38,9 +38,28 @@
 				{
 					"name": "get all users",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo0LCJuYW1lIjoic2FtdWVsIiwidXNlcm5hbWUiOiJzYW11ZWwyIiwiZW1haWwiOiJvcGV5ZW1pc2FtdWVsMjJAZ21haWwuY29tIiwicm9sZSI6ImVkaXRvciJ9LCJpYXQiOjE2MzU2ODUwMzcsImV4cCI6MTYzNTY4NTEzN30.tpAvX8kBtXciWMyW-Ys7PxyNA3v6FKAVrcCuv_-d-Tk",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "localhost:3000/user",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
 					},
 					"response": []
 				},
@@ -50,14 +69,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/user/1",
+							"raw": "localhost:3000/user/2",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
 								"user",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -78,14 +97,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/user/1",
+							"raw": "localhost:3000/user/2",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
 								"user",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -113,9 +132,57 @@
 				{
 					"name": "login",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
-						"url": null
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"opeyemisamuel22@gmail.com\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update User role(protected with JWT and Role)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"role\": \"editor\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user/4/role",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"4",
+								"role"
+							]
+						}
 					},
 					"response": []
 				}
