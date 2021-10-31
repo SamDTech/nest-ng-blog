@@ -13,9 +13,6 @@ export class AuthService {
   }
 
   hashPassword(password: string): Observable<string> {
-    console.log(password);
-    const hashed = bcrypt.hash(password, 12);
-    console.log('PASSWORD', hashed);
     return from<string>(bcrypt.hash(password, 12));
   }
 
